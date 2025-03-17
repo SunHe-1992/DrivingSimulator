@@ -59,7 +59,7 @@ public class AsyncLoadScene : MonoBehaviour
     {
         if (curProgressValue >= 100)
         {
-            loadingText.text = "加载完成";//文本显示完成OK  
+            loadingText.text = "Loading Finished";//文本显示完成OK  
             CancelInvoke();//取消所有计时
             operation.allowSceneActivation = true;//启用自动加载场景 
             Destroy(gameObject);

@@ -16,7 +16,7 @@ public class Det_QXXS : MonoBehaviour
     private Transform targetPlayer;
     private void Start()
     {
-        textTimer.text = "时间：--";
+        textTimer.text = "Time：--";
         targetPlayer = GameObject.FindGameObjectWithTag("Player").transform;
     }
 

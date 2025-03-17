@@ -95,11 +95,11 @@ public class Det_BPQB : MonoBehaviour
         else
         {
             timer -= Time.deltaTime;
-            textTimer.text = "时间：" + Mathf.Round(timer) + "s";
+            textTimer.text = "Time：" + Mathf.Round(timer) + "s";
         }
     }
     private void OnDestroy()
     {
-        textTimer.text = "时间：--";
+        textTimer.text = "Time：--";
     }
 }

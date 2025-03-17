@@ -47,7 +47,7 @@ public class Car_Information : MonoBehaviour
         //分数实时更新
         if (textScore != null)
         {
-            textScore.text = "分数：" + Score;
+            textScore.text = "Score：" + Score;
         }
 
         Speed = ObjSpeed.speed;
