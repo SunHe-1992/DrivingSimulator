@@ -57,7 +57,7 @@ public class SteeringWheelUI : MonoBehaviour
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
         */
-        /****************************************移动端*****************************************/
+        /****************************************移动端*****************************************
         for (int i = 0; i < count; i++)
         {
             Vector2 mousePosition = new Vector2();
@@ -154,7 +154,6 @@ public class SteeringWheelUI : MonoBehaviour
         }
         /**********************************移动端-END****************************/
         
-        /*-----------------------------------PC端------------------------------*
         if (Input.GetMouseButton(0))
         {
             Vector2 mousePosition = Input.mousePosition;
@@ -171,8 +170,8 @@ public class SteeringWheelUI : MonoBehaviour
                     posQuadrant.x = posQuadrant.x + (Screen.width / 2) - GetComponent<RectTransform>().position.x;
                     posQuadrant.y = posQuadrant.y + (Screen.height / 2) - GetComponent<RectTransform>().position.y;
 
-                    gx = GetComponent<RectTransform>().position.x;
-                    gy = GetComponent<RectTransform>().position.y;
+                    float gx = GetComponent<RectTransform>().position.x;
+                    float gy = GetComponent<RectTransform>().position.y;
 
                     Vector3 pos3 = new Vector3(posQuadrant.x, posQuadrant.y, 0);                           //计算后鼠标以方向盘圆心为坐标原点的坐标位置
                     if (m_IsFirst)

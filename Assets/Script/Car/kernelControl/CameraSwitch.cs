@@ -13,10 +13,10 @@ public class CameraSwitch : MonoBehaviour
     {
         _camera[0].SetActive(true);
     }
-
+    bool pointView = true;
     private void FixedUpdate()
     {
-        /*********************************PC端****************************
+        /*********************************PC端****************************/
         //按下V键-切换视觉
         if (Input.GetKeyDown(KeyCode.V))
         {

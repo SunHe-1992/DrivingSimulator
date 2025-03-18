@@ -36,7 +36,7 @@ public class TPD : MonoBehaviour
     {
         if (target)
         {
-            /**********************************PC端*****************************
+            /**********************************PC端*****************************/
             y_OriginAngle += Input.GetAxis("Mouse X") * x_Speed * Time.deltaTime;
             x_OriginAngle -= Input.GetAxis("Mouse Y") * y_Speed * Time.deltaTime;
             /********************************************************************/

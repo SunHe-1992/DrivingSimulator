@@ -58,7 +58,6 @@ public class DrivingKernel : MonoBehaviour
 
     private void Update()
     {
-        /**********************************【PC端】*************************************
         //空格-刹车
         if (Input.GetKey(KeyCode.Space))
         {
@@ -81,7 +80,7 @@ public class DrivingKernel : MonoBehaviour
         frWheelCollider.steerAngle = Input.GetAxis("Horizontal") * steerAngle;
         /**********************************PC端-END****************************************/
 
-        /******************【移动端】UI方向盘旋转时控制轮子碰撞器的转动*******************/
+        /******************【移动端】UI方向盘旋转时控制轮子碰撞器的转动*******************
         flWheelCollider.steerAngle = steeringWheelUi.wheelAngle / ratio;
         frWheelCollider.steerAngle = steeringWheelUi.wheelAngle / ratio;
         /*********************************************************************************/

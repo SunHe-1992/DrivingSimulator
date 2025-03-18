@@ -27,7 +27,7 @@ public class FPD : MonoBehaviour
     public float X;
     void FixedUpdate()
     {
-        /***********************************PC端***************************
+        /***********************************PC端***************************/
         distance -= Input.GetAxis("Mouse ScrollWheel") * mmSpeed;
         if (distance >= maxDistance)
         {
@@ -45,7 +45,7 @@ public class FPD : MonoBehaviour
             RotateView(x, y);
         /************************************************************************/
 
-        /***********************移动端-触摸点个数******************************/
+        /***********************移动端-触摸点个数******************************
         int count = Input.touchCount;
         for (int i = 0; i < count; i++)
         {

@@ -136,6 +136,7 @@ public class SteeringWheel2D : MonoBehaviour
     /// </summary>
     void Update()
     {
+        KeyboardControl();
         if (!wheelBeingHeld && !Mathf.Approximately(0f, wheelAngle))
         {
             float deltaAngle = wheelReleasedSpeed * Time.deltaTime;
@@ -147,6 +148,26 @@ public class SteeringWheel2D : MonoBehaviour
                 wheelAngle += deltaAngle;
         }
         rectT.localEulerAngles = Vector3.back * wheelAngle;
+    }
+    public float keyboardSpeed = 900f;
+    void KeyboardControl()
+    {
+        int multiplier = 0;
+        if (Input.GetKey(KeyCode.A))
+        {
+            multiplier = -1;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            multiplier = 1;
+        }
+        if (multiplier != 0)
+        {
+            wheelAngle += multiplier * keyboardSpeed * Time.deltaTime;
+            Debug.Log("wheelAngle:" + wheelAngle);
+            // 限制方向盘角度在最大转向角度范围内
+            wheelAngle = Mathf.Clamp(wheelAngle, -maximumSteeringAngle, maximumSteeringAngle);
+        }
     }
 
     /// <summary>
