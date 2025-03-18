@@ -9,6 +9,7 @@ public class VoicePromptAudio : MonoBehaviour
 {
     private void Start()
     {
+        Debug.Log("audio :" + this.gameObject.name);
         audio_ = GetComponent<AudioSource>();
 
         //考试开始准备语音提示
