@@ -92,7 +92,7 @@ public class DrivingKernel : MonoBehaviour
         {
             float angleL = flWheelCollider.steerAngle;
             float angleR = frWheelCollider.steerAngle;
-            float steerSpeedRatio = 0.005f;
+            float steerSpeedRatio = 0.0065f;
             angleL += Input.GetAxis("Horizontal") * steerAngle * steerSpeedRatio;
             angleR += Input.GetAxis("Horizontal") * steerAngle * steerSpeedRatio;
 
