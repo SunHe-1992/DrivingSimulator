@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 10
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -42,8 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 13
-  m_BakeOnSceneLoad: 0
+  serializedVersion: 12
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,6 +66,9 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -1130,7 +1133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &875234623
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1423,8 +1426,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902107553}
   m_Enabled: 1
-  serializedVersion: 11
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
   m_Intensity: 0.65
   m_Range: 10
@@ -1474,12 +1478,8 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
 --- !u!4 &902107555
 Transform:
   m_ObjectHideFlags: 0
@@ -2731,7 +2731,6 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2829,6 +2828,10 @@ PrefabInstance:
       propertyPath: Gears
       value: 
       objectReference: {fileID: 181265780}
+    - target: {fileID: 1425261202, guid: 7f2e562d1b6345b4685eb8f13b74f7c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1726393542520624, guid: 7f2e562d1b6345b4685eb8f13b74f7c3, type: 3}
       propertyPath: m_Name
       value: Car_CivilianVehicle_F
@@ -3288,7 +3291,6 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 606e8fe2783d8b6479b13ed2992d9e1e, type: 3}
-  m_Resource: {fileID: 8300000, guid: 606e8fe2783d8b6479b13ed2992d9e1e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3921,6 +3923,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1083187634}
     m_Modifications:
+    - target: {fileID: 3134218176820252512, guid: efc87ba8cdc3ff64c87d4111b13b76e7, type: 3}
+      propertyPath: m_Text
+      value: "\r<b><color=#00FF00>A/D</color></b> - Steering Wheel \r <b><color=#00FFFF>W/S</color></b>
+        - Accelerate \r <b><color=#FF0000>Space</color></b> - Brake\nLong press R
+        to reset steering wheel"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134218176820252512, guid: efc87ba8cdc3ff64c87d4111b13b76e7, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7216693079625686321, guid: efc87ba8cdc3ff64c87d4111b13b76e7, type: 3}
       propertyPath: m_Name
       value: Text (Legacy)
@@ -3951,11 +3963,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8775077632013130221, guid: efc87ba8cdc3ff64c87d4111b13b76e7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1101.803
+      value: 1124.1597
       objectReference: {fileID: 0}
     - target: {fileID: 8775077632013130221, guid: efc87ba8cdc3ff64c87d4111b13b76e7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 75.7746
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8775077632013130221, guid: efc87ba8cdc3ff64c87d4111b13b76e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3987,7 +3999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8775077632013130221, guid: efc87ba8cdc3ff64c87d4111b13b76e7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 4.8379
+      value: 16.0163
       objectReference: {fileID: 0}
     - target: {fileID: 8775077632013130221, guid: efc87ba8cdc3ff64c87d4111b13b76e7, type: 3}
       propertyPath: m_AnchoredPosition.y

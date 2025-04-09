@@ -32,7 +32,7 @@ public class DrivingKernel : MonoBehaviour
     [Header("就是汽车实际运行速度(KM/H)")]
     public float speed = 0;
     public float speedOrigin = 0;
-    
+
     [Header("方向盘UI预制件")]
     [Tooltip("自动查找并赋值，无需管理！")]
     public SteeringWheel2D steeringWheelUi;//UI方向盘鱼前车轮同步
@@ -55,7 +55,14 @@ public class DrivingKernel : MonoBehaviour
         steeringWheelUi = FindObjectOfType<SteeringWheel2D>();
         Handle = FindObjectOfType<Car_HandleBrake>();
     }
+    private float trimAngle(float input, float min, float max)
+    {
+        float outValue = input;
+        if (outValue > max) outValue = max;
+        if (outValue < min) outValue = min;
+        return outValue;
 
+    }
     private void Update()
     {
         //空格-刹车
@@ -75,9 +82,25 @@ public class DrivingKernel : MonoBehaviour
         //动力（车轮碰撞器）
         rlWheelCollider.motorTorque = Input.GetAxis("Vertical") * motorTorque;
         rrWheelCollider.motorTorque = Input.GetAxis("Vertical") * motorTorque;
-        //转向（车轮碰撞器）
-        flWheelCollider.steerAngle = Input.GetAxis("Horizontal") * steerAngle;
-        frWheelCollider.steerAngle = Input.GetAxis("Horizontal") * steerAngle;
+
+        if (Input.GetKey(KeyCode.R)) //steer wheel release
+        {
+            flWheelCollider.steerAngle = Input.GetAxis("Horizontal");
+            frWheelCollider.steerAngle = Input.GetAxis("Horizontal");
+        }
+        else
+        {
+            float angleL = flWheelCollider.steerAngle;
+            float angleR = frWheelCollider.steerAngle;
+            float steerSpeedRatio = 0.005f;
+            angleL += Input.GetAxis("Horizontal") * steerAngle * steerSpeedRatio;
+            angleR += Input.GetAxis("Horizontal") * steerAngle * steerSpeedRatio;
+
+            //转向（车轮碰撞器）
+            flWheelCollider.steerAngle = trimAngle(angleL, -steerAngle, steerAngle);
+            frWheelCollider.steerAngle = trimAngle(angleR, -steerAngle, steerAngle);
+        }
+
         /**********************************PC端-END****************************************/
 
         /******************【移动端】UI方向盘旋转时控制轮子碰撞器的转动*******************
@@ -96,7 +119,7 @@ public class DrivingKernel : MonoBehaviour
             rlWheelCollider.brakeTorque = brakeTorque;
             rrWheelCollider.brakeTorque = brakeTorque;
         }
-        else if(Handle_Flag)
+        else if (Handle_Flag)
         {
             Handle_Flag = false;
             rlWheelCollider.brakeTorque = 0;
@@ -152,7 +175,7 @@ public class DrivingKernel : MonoBehaviour
     /// <param name="press">踏板踩下标记</param>
     public void MobileTerminal_AcceleratorPedal(bool press)
     {
-        if(press)
+        if (press)
         {
             switch (Gears.gears)
             {
